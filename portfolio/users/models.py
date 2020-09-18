@@ -8,7 +8,8 @@ class User(AbstractBaseUser):
     address = models.CharField(blank=True, max_length=125)
     profile_image = models.CharField(max_length=255, blank=False)
     phone_number = models.CharField(blank=True, max_length=25)
-    description = models.TextField(blank=True)
+    description = models.TextField(blank=True),
+    git_hub_link = models.CharField(blank=True, max_length=255)
 
     USERNAME_FIELD = 'name'
     REQUIRED_FIELDS = []

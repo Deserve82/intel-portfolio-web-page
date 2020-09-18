@@ -30,7 +30,7 @@
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#portfolio">Portfolio</a></li>
                         <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#about">About</a></li>
-                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#chart">Contact</a></li>
+                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#chart">Chart</a></li>
                     </ul>
                 </div>
             </div>
@@ -92,13 +92,17 @@
                 <!-- About Section Content-->
                 <div class="row">
                     <div class="col-lg-4 ml-auto"><p class="lead">{{user.description}}</p></div>
-                    <div class="col-lg-4 mr-auto"><p class="lead">{{user.email}}</p></div>
+                    <div class="col-lg-4 mr-auto"><p class="lead">
+                        E-main : {{user.email}} <br/>
+                        Address : {{user.address}} <br/>
+                        Phone number : {{user.phone_number}} <br/>
+                    </p></div>
                 </div>
                 <!-- About Section Button-->
                 <div class="text-center mt-4">
-                    <a class="btn btn-xl btn-outline-light" href="https://startbootstrap.com/themes/freelancer/">
-                        <i class="fas fa-download mr-2"></i>
-                        Free Download!
+                    <a class="btn btn-xl btn-outline-light" href="{{user.git_hub_link}}">
+                        <i class="fab fa-github-alt"></i> <br/>
+                        My Git Hub Link
                     </a>
                 </div>
             </div>
