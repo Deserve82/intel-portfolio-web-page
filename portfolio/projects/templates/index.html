@@ -91,7 +91,6 @@
                 </div>
                 <!-- About Section Content-->
                 <div class="row">
-                    <div class="col-lg-4 ml-auto"><p class="lead">{{user.description}}</p></div>
                     <div class="col-lg-4 mr-auto"><p class="lead">
                         E-main : {{user.email}} <br/>
                         Address : {{user.address}} <br/>
@@ -191,6 +190,11 @@
                                     <img class="img-fluid rounded mb-5" src="{% static 'assets/img/portfolio/cabin.png' %}" alt="" />
                                     <!-- Portfolio Modal - Text-->
                                     <p class="mb-5">{{project.description}}</p>
+                                    <p class="mb-5">
+                                        {% for skill in project.used_skills.all %}
+                                            {{skill.name}}
+                                        {% endfor %}
+                                    </p>
                                     <button class="btn btn-primary" data-dismiss="modal">
                                         <i class="fas fa-times fa-fw"></i>
                                         Close Window
