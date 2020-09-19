@@ -151,8 +151,8 @@
                 </div>
                 <div class="row">
                      <div class="col-lg-8 mx-auto">
-                         <div class="col-lg-8 mx-auto" style="float: left; width: 50%;">
-                             <canvas id="pieChart" width="400" height="400"></canvas>
+                         <div class="row" style="padding-bottom: 50px">
+                             <canvas id="pieChart" width="600" height="600"></canvas>
                                 <script>
                                 var ctx = document.getElementById('pieChart').getContext('2d');
                                 const labelData = '{{skill_labels|safe}}'.split(",");
@@ -191,8 +191,8 @@
                                 });
                                 </script>
                          </div>
-                         <div class="col-lg-8 mx-auto" style="float: left; width: 50%;">
-                             <canvas id="barChart" width="200" height="200"></canvas>
+                         <div class="row">
+                             <canvas id="barChart" width="600" height="600"></canvas>
                                 <script>
                                 var ctx = document.getElementById('barChart').getContext('2d');
                                 const labelData2 = '{{project_names|safe}}'.split(",");
