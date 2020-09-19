@@ -1,8 +1,9 @@
 from datetime import date, timedelta
 
 from django.test import TestCase
-from .models import Project, ProgrammingSkill, Education, Experience
 from users.models import User
+
+from .models import Project, ProgrammingSkill, Education, Experience
 
 
 class ModelTestCase(TestCase):
@@ -68,4 +69,3 @@ class ModelTestCase(TestCase):
         self.user.save()
         self.project.save()
         self.assertEqual(self.project.get_duration_days, '30')
-

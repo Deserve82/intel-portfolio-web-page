@@ -1,9 +1,9 @@
-import json
 from collections import Counter
-from django.shortcuts import render, get_object_or_404
+
 from django.http import HttpResponse
-from users.models import User
+from django.shortcuts import render, get_object_or_404
 from projects.models import Project, Education, Experience
+from users.models import User
 
 
 def home(request):
