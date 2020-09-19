@@ -19,5 +19,5 @@ from projects.views import main
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('<str:username>', main)
+    path('user/<str:username>', main)
 ]

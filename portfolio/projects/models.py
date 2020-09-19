@@ -47,10 +47,6 @@ class Experience(models.Model):
     def __str__(self):
         return self.user.name + ' 경력 사항'
 
-    @property
-    def get_duration_days(self):
-        return (self.end_date - self.start_date).days
-
 
 class Project(models.Model):
     name = models.CharField(max_length=30, blank=True)
@@ -66,4 +62,4 @@ class Project(models.Model):
 
     @property
     def get_duration_days(self):
-        return (self.end_date - self.start_date).days
+        return str(abs((self.end_date - self.start_date).days))
