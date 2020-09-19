@@ -26,10 +26,6 @@ class Education(models.Model):
     def __str__(self):
         return self.user.name + ' 학력 사항'
 
-    @property
-    def get_duration_days(self):
-        return (self.graduate_date - self.start_date).days
-
 
 class Experience(models.Model):
     level = (
