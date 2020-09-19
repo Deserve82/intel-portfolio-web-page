@@ -16,11 +16,11 @@ class Education(models.Model):
         ('UNIV', 'UNIVERSITY'),
         ('GS', 'GRADUATE_SCHOOL')
     )
-    type = models.CharField(max_length=6, choices=school_type)
+    type = models.CharField(max_length=6, choices=school_type, blank=False)
     name = models.CharField(max_length=20, blank=False)
     major = models.CharField(max_length=20, blank=True)
-    start_date = models.DateField(blank=True)
-    graduate_date = models.DateField(blank=True)
+    start_date = models.DateField(blank=False)
+    graduate_date = models.DateField(blank=False)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
 
     def __str__(self):
@@ -39,9 +39,9 @@ class Experience(models.Model):
         ('MA', 'MANAGER')
     )
     role = models.CharField(max_length=5, choices=level)
-    company_name = models.CharField(max_length=30, blank=True)
-    start_date = models.DateField(blank=True)
-    end_date = models.DateField(blank=True)
+    company_name = models.CharField(max_length=30, blank=False)
+    start_date = models.DateField(blank=False)
+    end_date = models.DateField(blank=False)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
 
     def __str__(self):
@@ -49,11 +49,11 @@ class Experience(models.Model):
 
 
 class Project(models.Model):
-    name = models.CharField(max_length=30, blank=True)
+    name = models.CharField(max_length=30, blank=False)
     description = models.TextField(blank=True)
     image = models.CharField(max_length=255, blank=False)
-    start_date = models.DateField(blank=True)
-    end_date = models.DateField(blank=True)
+    start_date = models.DateField(blank=False)
+    end_date = models.DateField(blank=False)
     used_skills = models.ManyToManyField(ProgrammingSkill)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
 
