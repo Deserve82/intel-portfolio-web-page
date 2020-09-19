@@ -129,49 +129,80 @@
                              <canvas id="pieChart" width="100" height="100"></canvas>
                                 <script>
                                 var ctx = document.getElementById('pieChart').getContext('2d');
-                                const labelData = '{{labels|safe}}'.split(",");
-                                const counterData = '{{counter_data|safe}}'.split(",");
+                                const labelData = '{{skill_labels|safe}}'.split(",");
+                                const counterData = '{{skill_counter_data|safe}}'.split(",");
+
+                                // to create random color for charts
+                                let colors = [];
+                                let dynamicColors = function () {
+                                    let r = Math.floor(Math.random() * 255);
+                                    let g = Math.floor(Math.random() * 255);
+                                    let b = Math.floor(Math.random() * 255);
+                                    return "rgb(" + r + "," + g + "," + b + ")";
+                                }
+                                for (let c in labelData){
+                                    colors.push(dynamicColors())
+                                }
+
                                 var myChart = new Chart(ctx, {
                                     type: 'pie',
                                     data: {
                                         labels: labelData,
                                         datasets: [{
-                                            label: '# of Votes',
                                             data: counterData,
-                                            backgroundColor: [
-                                                'rgba(255, 99, 132, 0.2)',
-                                                'rgba(54, 162, 235, 0.2)',
-                                                'rgba(255, 206, 86, 0.2)',
-                                                'rgba(75, 192, 192, 0.2)',
-                                                'rgba(153, 102, 255, 0.2)',
-                                                'rgba(255, 159, 64, 0.2)'
-                                            ],
-                                            borderColor: [
-                                                'rgba(255, 99, 132, 1)',
-                                                'rgba(54, 162, 235, 1)',
-                                                'rgba(255, 206, 86, 1)',
-                                                'rgba(75, 192, 192, 1)',
-                                                'rgba(153, 102, 255, 1)',
-                                                'rgba(255, 159, 64, 1)'
-                                            ],
+                                            backgroundColor: colors,
+                                            borderColor: colors,
                                             borderWidth: 1
                                         }]
                                     },
                                     options: {
-                                        scales: {
-                                            yAxes: [{
-                                                ticks: {
-                                                    beginAtZero: true
-                                                }
-                                            }]
+                                        title: {
+                                            display: true,
+                                            position: 'bottom',
+                                            text: "Portion of used programming language"
                                         }
                                     }
                                 });
                                 </script>
-                 </div>
-                </div>
-            </div>
-        </section>
+                         </div>
+                         <div class="col-lg-8 mx-auto" style="float: left; width: 50%;">
+                             <canvas id="barChart" width="100" height="100"></canvas>
+                                <script>
+                                var ctx = document.getElementById('barChart').getContext('2d');
+                                const labelData2 = '{{project_names|safe}}'.split(",");
+                                const counterData2 = '{{project_duration|safe}}'.split(",");
+                                const randomColor = dynamicColors();
+                                // to create random color for charts
+                                let colors2 = [];
+                                for (let c in labelData2){
+                                    colors2.push(randomColor)
+                                }
+
+                                var myChart = new Chart(ctx, {
+                                    type: 'bar',
+                                    data: {
+                                        labels: labelData2,
+                                        datasets: [{
+                                            label: 'days',
+                                            data: counterData2,
+                                            backgroundColor: colors2,
+                                            borderColor: colors2,
+                                            borderWidth: 1
+                                        }]
+                                    },
+                                    options: {
+                                        title: {
+                                            display: true,
+                                            position: 'bottom',
+                                            text: "Duration of project"
+                                        }
+                                    }
+                                });
+                                </script>
+                         </div>
+                        </div>
+                    </div>
+                </section>
         <!-- Copyright Section-->
         <div class="copyright py-4 text-center text-white">
             <div class="container"><small>Copyright © Your Website 2020</small></div>
