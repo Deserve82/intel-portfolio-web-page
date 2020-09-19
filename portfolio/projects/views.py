@@ -5,11 +5,15 @@ from users.models import User
 from projects.models import Project, Education, Experience
 
 
+def home(request):
+    return render(request, 'home.html')
+
+
 def main(request, username):
     user = get_object_or_404(User, name=username)
     projects = Project.objects.all().filter(user=user)
     educations = Education.objects.all().filter(user=user)
-    experience = Experience.objects.all().filter(user=user)
+    experiences = Experience.objects.all().filter(user=user)
 
     skill_data = []
     project_names = []
@@ -34,7 +38,7 @@ def main(request, username):
         'user': user,
         'projects': projects,
         'educations': educations,
-        'experience': experience,
+        'experiences': experiences,
         'skill_labels': skill_labels,
         'skill_counter_data': skill_counter_data,
         'project_duration': project_duration,

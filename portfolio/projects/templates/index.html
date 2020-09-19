@@ -92,17 +92,43 @@
                     <div class="divider-custom-line"></div>
                 </div>
                 <!-- About Section Content-->
+                <h1>Contact</h1>
                 <div class="row">
                     <div class="col-lg-4 mr-auto"><p class="lead">
-                        E-MAIL : {{user.email}}
+                        <h3>E-MAIL :</h3> <h5>{{user.email}}</h5>
                     </p></div>
                     <div class="col-lg-4 mr-auto"><p class="lead">
-                        Address : {{user.address}}
+                        <h3>Address :</h3> <h5>{{user.address}}</h5>
                     </p></div>
                     <div class="col-lg-4 mr-auto"><p class="lead">
-                        PhoneNumber : {{user.phone_number}}
+                        <h3>PhoneNumber :</h3> <h5>{{user.phone_number}}</h5>
                     </p></div>
                 </div>
+                <br />
+                <h1>Education</h1>
+                <div class="row">
+                    {% for education in educations %}
+                    <div class="col-lg-4 mr-auto"><p class="lead">
+                        <h5>{{education.get_type_display}}</h5>
+                        <h3>{{education.name}}</h3>
+                        <h6>{{education.major}}</h6>
+                        <h5>{{education.start_date}} - {{education.graduate_date}}</h5>
+                    </p></div>
+                    {% endfor %}
+                </div>
+                <br />
+                <h1>Experience</h1>
+                <div class="row">
+                    {% for experience in experiences %}
+                    <div class="col-lg-4 mr-auto"><p class="lead">
+                        <h3>{{experience.company_name}}</h3>
+                        <h6>{{experience.get_role_display}}</h6>
+                        <h5>{{experience.start_date}} - {{experience.end_date}}</h5>
+                    </p></div>
+                    {% endfor %}
+                </div>
+
+
                 <!-- About Section Button-->
                 <div class="text-center mt-4">
                     <a class="btn btn-xl btn-outline-light" href="{{user.git_hub_link}}">
