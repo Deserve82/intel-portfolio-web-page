@@ -11,7 +11,7 @@ class ProgrammingSkill(models.Model):
 
 class Education(models.Model):
     school_type = (
-        ('HS', 'HIGH_SCHOOL'),
+        ('HS', 'HIGHSCHOOL'),
         ('COL', 'COLLEAGE'),
         ('UNIV', 'UNIVERSITY'),
         ('GS', 'GRADUATE_SCHOOL')
