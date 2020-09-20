@@ -4,7 +4,7 @@ implementation tasks of Intel 2020 software intern
 ### run local env
 
 ```
-python -m venv venv
+python3 -m venv venv
 source venv/bin/activate
 ```
 
