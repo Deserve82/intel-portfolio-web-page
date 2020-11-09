@@ -1,4 +1,4 @@
-# intel-portfolio-web-page
+# web-portfolio
 implementation tasks of Intel 2020 software intern
 
 ### run local env
